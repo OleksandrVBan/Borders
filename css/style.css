@@ -1,0 +1,106 @@
+*{
+    box-sizing: border-box;
+}
+
+/* 
+Границі для блоків
+*/
+div {
+    border: 6px solid grey;
+}
+/*  
+Щоб розмістити контент по центру викор:  
+margin: 0 auto; 
+ */
+.container {
+    margin: 0 auto;
+    width: 100%;
+    max-width: 1200px;
+}
+ /* 
+Вказуємо що це буде зроблено на влексах:  
+display: flex;
+Також потрібно вказати перенос тексту на новву строку (який по 
+замовчуваню у FLEX вимкнутий - flex-wrap: wrap;) 
+ */
+.row {
+    display: flex;
+    flex-wrap: wrap;
+}
+/*
+Властивості flex: (flex-shrink, flex-grow, flex-basis) 
+Відповідно короткий запис: flex: 0(shrink) 1(grow) 100%(basis);
+min-height - висота блока 
+border: 5px solid yellow - границі для нижнього col;
+*/
+.col {
+    border: 6px solid yellow;
+    flex: 0 1 100%;
+    min-height: 200px;
+}
+/* 
+Три блоки з розмірами
+*/
+.col-25 {
+    flex-basis: 25%;
+    max-width: 25%;
+    min-width: 25%;
+}
+.col-33  {
+    flex-basis: 33.333%;  
+    max-width: 33.333%; 
+    min-width: 33.333%; 
+}
+.col-50  {
+    flex-basis: 50%;  
+    max-width: 50%;
+    min-width: 50%;
+}
+/* 
+Кольори 
+*/
+.red {
+    background-color: red;
+    }
+.purple {
+    background-color: purple;
+}
+.green {
+    background-color: green;
+}
+/* 
+Робимо медіа запит!
+Умова виконується коли розширення менше ніж 600px 
+ */
+ @media (max-width: 600px) {
+    .col-25 {
+        flex-basis: 50%;
+        max-width: 50%;
+        min-width: 50%;
+        min-height: 80px;
+    }
+    .col-33  {
+        flex-basis: 50%;  
+        max-width: 50%; 
+        min-width: 100%; 
+        min-height: 50px;
+    }
+    .col-50  {
+        flex-basis: 100%;  
+        max-width: 100%;
+        min-width: 100%;
+        min-height: 50px;
+    }
+}
+
+ @media (max-width: 400px) {
+     .col {
+        flex-basis: 100%;  
+        width: 100%;
+        max-width: 100%; 
+        min-width: 100%;
+        min-height: 40px;
+    }   
+  
+}
+
